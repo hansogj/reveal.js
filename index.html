@@ -59,14 +59,24 @@
 	<!-- Example of nested vertical slides -->
 	
 	<section>
-	  <h2>Arbeidsskisse</h2>
-	  <p>
-            <img width="270" height="500" src="./img/effekt1.png" alt="tidlig skisse">
-            <img width="270" height="500" src="./img/effekt2.png" alt="tidlig skisse">
-	  </p>
-          
-	</section>
+	  <section>
+            <h2>Arbeidsskisse</h2>
+	    <p>
+              <img width="270" height="500" src="./img/effekt1.png" alt="tidlig skisse">
+              <img width="270" height="500" src="./img/effekt2.png" alt="tidlig skisse">
+	    </p>
 
+          </section>
+          <section>
+	    <h2>Redigerte skisser</h2>
+	    <p>
+              <img width="750" height="850" src="./img/effekt3.png" alt="senere skisse">
+	    </p>
+            
+	  </section>
+  
+	</section>
+        
 	<section>
           
 	  <section>
@@ -104,35 +114,105 @@
 	<section>
           <section>
             <h2>Løsning</h2>
-	    <p>Single page - bare en sidevisning</p>
-            <p>Laster html og fyller <i>.page</i>-elementet med innhold fra <i>json/mustache</i></p>
-            <p>Må være autentisert for å få vist innhold</p>
-            <p>Faller tilbake til login-dialog hvis <strong>json.status === 401</strong></p>
-            <p>Én controller-klasse <i>effekt/myad.json</i></p>
+            <small>
+              
+	      <p>Single page - bare en sidevisning</p>
+              <p>Laster html og fyller <i>.page</i>-elementet med innhold fra <i>json/mustache</i></p>
+              <p>Må være autentisert for å få vist innhold</p>
+              <p>Faller tilbake til login-dialog hvis <strong>json.status === 401</strong></p>
+              <p>Én controller-klasse <i>effekt/myad.json</i></p>
 
+            </small>
           </section>
-          <section>
-            <h3>JSON</h3>
-            <pre>
-              <code data-trim contenteditable>
+
+
+<section>
+  <h3>Externals</h3>
+  <pre>
+    <code data-trim contenteditable>
+      external/
+      ├── es5-shim.js
+      ├── g.line.js
+      ├── g.raphael-min.js
+      ├── mustache.js
+      ├── promise-3.2.0.js
+      ├── raphael.js
+      └── reqwest.js
+</code>
+  </pre>
+</section>
+
+<section>
+<h3>Internals</h3>
+<pre>
+<code data-trim contenteditable>
+  finn/
+  ├── effekt
+  │   ├── graph.js
+  │   ├── main.js
+  │   ├── page.js
+  │   ├── preparer.js
+  │   └── upsale.js
+  └── lib
+      ├── auth.js
+      ├── authstate.js
+      ├── env.js
+      ├── form.js
+      ├── log.js
+      ├── palette.js
+      ├── serverfacade.js
+      ├── style.js
+      └── utility.js
+
+</code>
+</pre>
+</section>
+
+        <section>
+          <h3>JSON</h3>
+          <pre>
+            <code data-trim contenteditable>
 json: {
   result: {
-    adData:{adId:44817763,…}
-    adReferringDomainStatistics:{statisticsResult:[],error:false,message:""}
-    adRepeatedVisitorStatistics:{statisticsResult:[],error:false,message:""
-    adViewsStatistics:{statisticsResult:{},error:false,message:""}
-    tart: "finn"
-    upsaleProducts: []
-    }
-}</code>
-            </pre>
-            <ul>
-              <li>Tart the bride</li>
-              <li><small><code>{{#error}} {{>messagetemplate}} {{/error}}</code></small></li>
-            </ul>
-          </section>
-	</section>
+  adData:{adId:44817763,…}
+  adReferringDomainStatistics:{statisticsResult:[],error:false,message:""}
+  adRepeatedVisitorStatistics:{statisticsResult:[],error:false,message:""
+  adViewsStatistics:{statisticsResult:{},error:false,message:""}
+  tart: "finn"
+  upsaleProducts: []
+ }
+}
+            </code>
+          </pre>
+            <p>Tart the bride</p>
+            <p><small><code>{{#error}} {{>messagetemplate}} {{/error}}</code></small></p>
 
+</section>
+
+<section>
+  <h3>Flow</h3>
+  <pre>
+    <code data-trim contenteditable>
+getAdStatView().then(onAdStatView, onFail).then(null,onFail);
+...
+function onFail(err) {
+  FINN.body.innerHTML = '';
+  if (!!err.status && err.status.toString() === "401"){
+    FINN.auth.login(init);
+  }else {server.handleError(err);}
+}
+...
+function onAdStatView (adview) {
+  return getMustache(populateView(adview))
+         .then(whenRendered ,onFail) //insert & tart
+         .then(drawAndBind);  //draw & bind events
+}
+    </code>
+  </pre>
+</section>
+
+
+</section>
 
 
 
@@ -393,8 +473,8 @@ json: {
       progress: true,
       history: true,
       center: true,
-      theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-      transition: Reveal.getQueryHash().transition || 'cube', // default/cube/page/concave/zoom/linear/fade/none
+      theme: 'moon' || Reveal.getQueryHash().theme, // available themes are in /css/theme
+      transition: Reveal.getQueryHash().transition || 'zoom', // default/cube/page/concave/zoom/linear/fade/none
 
       // Parallax scrolling
       // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
