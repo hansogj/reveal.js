@@ -28,6 +28,24 @@
     <!--[if lt IE 9]>
 	<script src="lib/js/html5shiv.js"></script>
 	<![endif]-->
+
+     <style>
+         .profilbilde {
+             height: 250px;
+         }
+         .person {
+             text-align: center;
+             float: left;
+         }
+         .bilde {
+             float: right;
+         }
+         .reveal .bilde img {
+             margin: 2px !important;
+             padding: 0 !important;
+             float: right;
+         }
+     </style>
   </head>
 
   <body>
@@ -40,6 +58,28 @@
 	  <h1>Åssen ser brura ut?</h1>         
 	  <h3>Avispenger og statistikk</h3>
 	  <p>The pimp & the bride</p>
+      <p>
+          <div class="person">
+            <img class="profilbilde" src="./img/hansole.jpg"/>
+            <div class="navn">Hans Ole</div>
+          </div>
+        <div class="person">
+            <img class="profilbilde" src="./img/lotte.jpg"/>
+            <div class="navn">Lotte</div>
+        </div>
+        <div class="person">
+            <img class="profilbilde" src="./img/marte.jpg"/>
+            <div class="navn">Marte</div>
+        </div>
+        <div class="person">
+            <img class="profilbilde" src="./img/aadne.jpg"/>
+            <div class="navn">Ådne</div>
+        </div>
+        <div class="person">
+            <img class="profilbilde" src="./img/benjamin.jpg"/>
+            <div class="navn">Benjamin</div>
+        </div>
+      </p>
 	</section>
 
 	<section>
@@ -86,24 +126,31 @@
             <p>Flotr2 line</p>
             <p>D3</p>
             <p class="fragment grow highlight-blue">gRaphaël</p>
+            <img src="./img/screenshot-2a-effekt-graph.png"/>
 	    <p>
               
 	    </p>
           </section>
           <section>
             <h2>Statistikk</h2>
-            <ul>                                     
+            <div class="list" style="float: left; width: 70%" >
+            <ul>
               <li>Antall sidevisninger pr dag siden publish date </li>
-              <li>Gjennomsnittlig sidevisninger pr dag siden publish date for &quot; lignende annonser &quot; </li>
+              <li>Gjennomsnittlig sidevisninger pr dag siden publish date for &quot;lignende annonser&quot; </li>
               <li>Gjentatte besøk fra samme bruker</li>
               <li>Referring page</li>
             </ul>
+            </div>
+            <div class="bilde" style="float: right">
+                <img src="./img/screenshot-1-effekt.png"/>
+            </div>
           </section>
 	</section>
 
 	<section>
 	  <h2>Oppsalgsprodukter</h2>
           <h3>PO's hjørne</h3>
+          <div class="list" style="float: left">
           <ul>
             <li>Annonse i Aftenposten</li>
             <li>Banner på VG</li>
@@ -120,6 +167,17 @@
             <li>Banner på FINN</li>
             <li>Kampanje på Facebook</li>
           </ul>
+          </div>
+          <div class="bilde">
+              <img width="200px" src="./img/facebook-logo.jpg"/>
+          </div>
+        <div class="bilde">
+            <img src="./img/facebook-ad.png"/>
+        </div>
+        <div class="bilde">
+          <img src="./img/logos.png"/>
+        </div>
+
 	</section>
 
 	<section>
@@ -247,6 +305,7 @@ function onAdStatView (adview) {
             <h2>Neste stopp Oslo Sentralbanestasjon</h2>
             <p>Bonzo-testing på huset</p>                                 
             <p>Bonzo-testing på Oslo sentralbansestasjon</p>
+            <img src="./img/Oslo-S.jpg"/>
           </section>
           <section>
             <h3>Resultater</h3>
