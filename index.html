@@ -37,19 +37,18 @@
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
 	<section>
-	  <h1>Effekt</h1>
+	  <h1>Åssen ser brura ut?</h1>         
 	  <h3>Avispenger og statistikk</h3>
-	  <p>
-	    <small>Av og med  <a href="mailto:lotte.johansen@finn.no">lotte.johansen@finn.no</a> / <a href="mailto:fihagjer@finn.no">fihagjer@finn.no</a></small>
-	  </p>
+	  <p>The pimp & the bride</p>
 	</section>
 
 	<section>
 	  <h2>Bakgrunn</h2>
 
-          <p class="fragment grow">Avispenger</p>
-          <p class="fragment grow">Realestate-upsale</p>
-          <p class="fragment grow">FINN-effekt</p>
+          <p>Avispenger</p>
+          <p>Realestate-upsale</p>
+          <p>Brainstorm: åssen ser brura ut, tart-the-bride.... </p>
+          <p>FINN-effekt</p>
 
 	  <aside class="notes">
 	    Solgt inn som et eiendomsprosjekt som også skulle være tilgjengelig for resten av FINN på lengre sikt
@@ -80,13 +79,13 @@
 	<section>
           
 	  <section>
-	    <h2>Graph</h2>
-            <p class="fragment">Google line</p>
-            <p class="fragment">Google bar</p>
-            <p class="fragment">Google time line</p>
-            <p class="fragment">Flotr2 line</p>
-            <p class="fragment">D3</p>
-            <p class="fragment">gRaphaël</p>
+	    <h2>Graph-tool</h2>
+            <p>Google line</p>
+            <p>Google bar</p>
+            <p>Google time line</p>
+            <p>Flotr2 line</p>
+            <p>D3</p>
+            <p class="fragment grow highlight-blue">gRaphaël</p>
 	    <p>
               
 	    </p>
@@ -94,10 +93,10 @@
           <section>
             <h2>Statistikk</h2>
             <ul>                                     
-              <li class="fragment">Antall sidevisninger pr dag siden publish date </li>
-              <li class="fragment">Gjennomsnittlig sidevisninger pr dag siden publish date for &quot; lignende annonser &quot; </li>
-              <li class="fragment">Gjentatte besøk fra samme bruker</li>
-              <li class="fragment">Referring page</li>
+              <li>Antall sidevisninger pr dag siden publish date </li>
+              <li>Gjennomsnittlig sidevisninger pr dag siden publish date for &quot; lignende annonser &quot; </li>
+              <li>Gjentatte besøk fra samme bruker</li>
+              <li>Referring page</li>
             </ul>
           </section>
 	</section>
@@ -105,24 +104,36 @@
 	<section>
 	  <h2>Oppsalgsprodukter</h2>
           <h3>PO's hjørne</h3>
-          <p class="fragment">Annonse i Aftenposten</p>
-          <p class="fragment">Banner på VG</p>
-          <p class="fragment">Banner på FINN</p>
-          <p class="fragment">(Kampanje på Facebook)</p>
+          <ul>
+            <li>Annonse i Aftenposten</li>
+            <li>Banner på VG</li>
+            <li>Banner på "hele" internett 
+              
+              <ul style="font-size:0.6em; line-height:1em"> 
+                <li>Dagbladet</li>
+                <li>SOL</li>
+                <li>e24.no</li>
+                <li>Nettavisen</li>
+                <li>Filmweb med flere</li>
+              </ul>
+            </>
+            <li>Banner på FINN</li>
+            <li>(Kampanje på Facebook)</li>
+          </u>
 	</section>
 
 	<section>
           <section>
             <h2>Løsning</h2>
-            <small>
+            <ul>
               
-	      <p>Single page - bare en sidevisning</p>
-              <p>Laster html og fyller <i>.page</i>-elementet med innhold fra <i>json/mustache</i></p>
-              <p>Må være autentisert for å få vist innhold</p>
-              <p>Faller tilbake til login-dialog hvis <strong>json.status === 401</strong></p>
-              <p>Én controller-klasse <i>effekt/myad.json</i></p>
+	      <li>Single page - bare en sidevisning</li>
+              <li>Laster html og fyller <i>.page</i>-elementet med innhold fra <i>json/mustache</i></li>
+              <li>Må være autentisert for å få vist innhold</li>
+              <li>Faller tilbake til login-dialog hvis <strong>json.status === 401</strong></li>
+              <li>Én controller-klasse <i>effekt/myad.json</i></li>
 
-            </small>
+            </ul>
           </section>
 
 
@@ -190,7 +201,7 @@ json: {
 </section>
 
 <section>
-  <h3>Flow</h3>
+  <h2>Flow</h2>
   <pre>
     <code data-trim contenteditable>
 getAdStatView().then(onAdStatView, onFail).then(null,onFail);
